@@ -1,0 +1,25 @@
+.imgProfile {
+  height: 350px;
+  width: 250px;
+  padding-top: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.textProfile {
+  height: 350px;
+  width: 250px;
+  padding-top: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  color: white;
+}
+
+.ratingProfile {
+  height: 350px;
+  width: 250px;
+  padding-top: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  color: white;
+}/*# sourceMappingURL=styleProfile.module.css.map */

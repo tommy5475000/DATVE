@@ -1,0 +1,51 @@
+.movielist {
+  max-height: 350px;
+  overflow-y: auto;
+}
+.movielist::-webkit-scrollbar {
+  width: 5px;
+}
+.movielist::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: gray;
+}
+.movielist::-webkit-scrollbar-thumb {
+  background-color: rgb(144, 202, 249);
+  border-radius: 10px;
+}
+.movielist .movielist_item {
+  display: flex;
+  padding: 20px;
+}
+.movielist .movielist_item img {
+  width: 100px;
+  height: 126px;
+}
+.movielist .movielist_item .movielist_time {
+  padding: 0 20px;
+}
+.movielist .movielist_item .movielist_time .movielist_name {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  color: #d4dd29;
+}
+.movielist .movielist_item .movielist_time .movielist_name .movielist_age {
+  color: #fff;
+  display: inline-block;
+  padding: 0 5px;
+  font-size: 16px;
+  min-width: 33px;
+  background: #fb4226;
+  text-align: center;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+.movielist .movielist_item .movielist_time .movielist_ticket {
+  display: flex;
+  flex-wrap: wrap;
+}
+.movielist .movielist_item .movielist_time .movielist_ticket .ticket_time {
+  margin: 0px 16px 16px 0px;
+}/*# sourceMappingURL=movielist.module.css.map */

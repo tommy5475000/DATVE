@@ -1,0 +1,58 @@
+.card_movie .card_item {
+  text-decoration: none;
+}
+.card_movie .card_item img {
+  width: 100%;
+  max-width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+.card_movie .card_item img:hover {
+  transform: scale(1.1);
+}
+.card_movie .card_item .card_name {
+  padding: 15px 0;
+  height: 75px;
+  display: block;
+  font-size: 15px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 22px;
+  transition: all 0.5s;
+}
+.card_movie .card_item .card_name:hover {
+  color: #c3cc26;
+}
+.card_movie .card_ticket {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 55px;
+}
+.card_movie .card_ticket .btn_card {
+  width: 100%;
+  padding: 15px 0;
+  color: white;
+  text-decoration: none;
+  background-color: #54ab35;
+  border-radius: 3px;
+  font-weight: 600;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.card_movie .card_ticket .btn_card:hover {
+  color: #54ab35;
+  background-color: white;
+}
+.card_movie .card_ticket .btn_card span {
+  margin-left: 5px;
+  font-size: 15px;
+}/*# sourceMappingURL=card.module.css.map */

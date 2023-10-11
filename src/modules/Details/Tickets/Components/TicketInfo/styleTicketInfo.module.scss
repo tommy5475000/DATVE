@@ -1,0 +1,29 @@
+.info_item {
+    display: -webkit-box;
+    cursor: pointer;
+    position: relative;
+    padding: 20px 0;
+    &::after {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 100%;
+      left: 0px;
+      bottom: 0px;
+      background-color: gray;
+    }
+}
+
+
+.infoButton{
+  width: 100%;
+  margin-top: 10px;
+  background: red;
+  text-align: center;
+  .button{
+    color: white;
+    font-size: 20px;
+  }
+}
+
+
