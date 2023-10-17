@@ -21,7 +21,7 @@ export default function Tickets() {
 
   const seats = data?.danhSachGhe || [];
   const info = data?.thongTinPhim || [];
-
+  console.log(seats);
   return (
     <div className={style.seatTicket}>
       <Grid container>
@@ -51,7 +51,7 @@ export default function Tickets() {
         </Grid>
 
         <Grid item md={4}>
-          <TicketInfo info={info} />
+          <TicketInfo info={info} data={data}/>
         </Grid>
       </Grid>
     </div>

@@ -7,6 +7,8 @@ import SignIn from "./Auth/pages/SignIn";
 import SignUp from "./Auth/pages/SignUp";
 import UserProvider from "./contexts/UserContext/UserContext";
 import ProtectedRoute from "./routers/ProtectedRoute";
+import Admin from "./admin";
+import AdminPages from "./AdminPages";
 
 function App() {
   return (
@@ -29,6 +31,9 @@ function App() {
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/sign-up" element={<SignUp />} />
           </Route>
+
+          
+          <Route path="/admin" element={<AdminPages />} />
 
           <Route path="*" element={"123"} />
         </Routes>

@@ -12,15 +12,17 @@ const ticketReducer = (state = initState, action) => {
       if (isSelected) {
         const selectedSeats = [...state.selectedSeats, seat];
         const totalPrice = state.totalPrice + seat.giaVe;
-        return { ...state, selectedSeats,totalPrice };
+        return { ...state, selectedSeats, totalPrice };
       }
 
       const selectedSeats = state.selectedSeats.filter(
         (item) => item.maGhe !== seat.maGhe
       );
       const totalPrice = state.totalPrice - seat.giaVe;
-      return { ...state, selectedSeats,totalPrice };
+      return { ...state, selectedSeats, totalPrice };
     }
+
+
 
     default:
       return state;
@@ -30,6 +32,7 @@ const ticketReducer = (state = initState, action) => {
 const store = configureStore({
   reducer: {
     ticket: ticketReducer,
+
   },
 });
 

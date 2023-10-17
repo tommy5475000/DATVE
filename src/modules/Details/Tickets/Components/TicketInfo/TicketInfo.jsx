@@ -1,20 +1,58 @@
+import React, { useState } from "react";
 import { Button, Grid } from "@mui/material";
-import React from "react";
 import { useSelector } from "react-redux";
-
 import style from "./styleTicketInfo.module.scss";
+import Swal from "sweetalert2";
+import { useMutation} from "@tanstack/react-query";
+import { addTicket } from "../../../../../apis/tickets";
 
-export default function TicketInfo({ info }) {
+export default function TicketInfo({ info, data }) {
+  const [dataTicket, setDataTicket] = useState({});
+
+
   const { selectedSeats, totalPrice } = useSelector((state) => {
     return state.ticket;
   });
 
-  const handleBook = () => {};
+  const { mutate: handleBuyTicket } = useMutation({
+    mutationFn: () => addTicket(dataTicket),
+
+    onSuccess: () => {
+      Swal.fire(
+        "Đặt vé thành công!",
+        "Kiểm tra trong lịch sử đặt vé",
+        "success"
+      ).then(function () {
+        window.location.reload();
+      });
+    },
+  });
+
+  const handleBook = () => {
+    if (selectedSeats.length <= 0) {
+      Swal.fire({
+        icon: "error",
+        title: "Bạn chưa chọn ghế",
+        text: "Vui lòng chọn ghế!",
+      });
+      return;
+    }
+    setDataTicket({
+      maLichChieu: data?.thongTinPhim.maLichChieu,
+      danhSachVe: selectedSeats.map((seat) => {
+        return {
+          maGhe: seat.maGhe,
+          giaVe: seat.giaVe,
+        };
+      }),
+    });
+    handleBuyTicket();
+  };
 
   return (
     <div>
       <Grid className={style.info_item}>
-        <h1>{totalPrice} VND</h1>
+        <h1>{totalPrice.toLocaleString()} VND </h1>
       </Grid>
 
       <Grid className={style.info_item}>
@@ -78,7 +116,11 @@ export default function TicketInfo({ info }) {
       </Grid>
 
       <Grid className={style.infoButton}>
-        <Button className={style.button} onClick={handleBook}>
+        <Button
+          sx={{ width: "100%" }}
+          className={style.button}
+          onClick={handleBook}
+        >
           ĐẶT VÉ
         </Button>
       </Grid>

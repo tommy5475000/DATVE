@@ -1,0 +1,30 @@
+.App {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  li:last-child {
+    border-bottom: none;
+  }

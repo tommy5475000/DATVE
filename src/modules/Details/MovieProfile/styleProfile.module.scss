@@ -1,21 +1,53 @@
-.imgProfile{
-    height: 350px;
-    width: 250px;
-    padding-top: 50px;
-    object-fit: cover;
+.js1 {
+  height: 350px;
+  width: 250px;
+  padding: 50px 0;
+
+  .js11 {
+    width: 100%;
+    border-radius: 5px;
+  }
 }
 
-.textProfile{
-    height: 350px;
-    width: 250px;
-    padding-top: 50px;
-    object-fit: cover;
-    color: white;
+.js3 {
+  color: #fff;
+  top: 60%;
+  width: 30% !important;
+  z-index: 3;
+  position: absolute;
+  transform: translateY(-50%);
+  .js4 {
+    color: #fff;
+    padding: 7.2px 24px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: #fb4226;
+    transition: all .5s;
+  }
 }
-.ratingProfile{
-    height: 350px;
-    width: 250px;
-    padding-top: 50px;
-    object-fit: cover;
-    color: white;
+
+.js5 {
+  top: 60%;
+  width: 30% !important;
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+.js6 {
+  color: #86f348;
+  width: 110px !important;
+  height: 110px !important;
+  position: relative;
+}
+.js7 {
+  position: absolute;
+  top: 19%;
+  left: 40%;
+  color: #fff;
+  font-size: 25px;
+  display: inline-block;
+  width: 50%;
+  text-align: center;
 }

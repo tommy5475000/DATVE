@@ -1,11 +1,12 @@
 import {
+  Avatar,
   Box,
   Button,
-  FormControl,
+  Container,
   Grid,
   TextField,
-  Typography,
 } from "@mui/material";
+import LockOpenIcon from '@mui/icons-material/LockOpen';
 import React from "react";
 import style from "./styleSignUp.module.scss";
 import { useForm } from "react-hook-form";
@@ -66,69 +67,80 @@ export default function SignUp() {
 
   return (
     <div className={style.backgroud}>
-      <Grid sx={{ mx: 65 }}>
-        <Grid container>
-          <Grid className={style.form}>
-            <h3 className={style.h3}>Đăng Ký</h3>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Box
-                component="form"
-                sx={{
-                  "& > :not(style)": { m: 1, width: "50ch" },
-                }}
-                noValidate
-                autoComplete="off"
-              >
-                <TextField
-                  id="outlined-basic"
-                  label="Tài Khoản"
-                  {...register("taiKhoan")}
-                  error={!!errors.taiKhoan}
-                  helperText={errors.taiKhoan?.message}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Mật Khẩu"
-                  type="password"
-                  {...register("matKhau")}
-                  error={!!errors.matKhau}
-                  helperText={errors.matKhau?.message}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Email"
-                  {...register("email")}
-                  error={!!errors.email}
-                  helperText={errors.email?.message}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Họ Tên"
-                  {...register("hoTen")}
-                  error={!!errors.hoTen}
-                  helperText={errors.hoTen?.message}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Số Điện Thoại"
-                  type="number"
-                  {...register("soDt")}
-                  error={!!errors.soDt}
-                  helperText={errors.soDt?.message}
-                />
-              </Box>
-              
-              <div>{error && <p>{error}</p>}</div>
+      <Container maxWidth="xs">
+        <Grid>
+          <Grid container>
+            <Grid className={style.form}>
+              <div className={style.jss3}>
+                <Avatar className={style.jss4}>
+                  <LockOpenIcon fontSize="medium" />
+                </Avatar>
+                <h3>Đăng Ký</h3>
+              </div>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <Box
+                  component="form"
+                  sx={{
+                    "& > :not(style)": { m: 1, width: "40ch" },
+                  }}
+                  noValidate
+                  autoComplete="off"
+                >
+                  <TextField
+                    id="outlined-basic"
+                    label="Tài Khoản"
+                    {...register("taiKhoan")}
+                    error={!!errors.taiKhoan}
+                    helperText={errors.taiKhoan?.message}
+                  />
+                  <TextField
+                    id="outlined-basic"
+                    label="Mật Khẩu"
+                    type="password"
+                    {...register("matKhau")}
+                    error={!!errors.matKhau}
+                    helperText={errors.matKhau?.message}
+                  />
+                  <TextField
+                    id="outlined-basic"
+                    label="Email"
+                    {...register("email")}
+                    error={!!errors.email}
+                    helperText={errors.email?.message}
+                  />
+                  <TextField
+                    id="outlined-basic"
+                    label="Họ Tên"
+                    {...register("hoTen")}
+                    error={!!errors.hoTen}
+                    helperText={errors.hoTen?.message}
+                  />
+                  <TextField
+                    id="outlined-basic"
+                    label="Số Điện Thoại"
+                    type="number"
+                    {...register("soDt")}
+                    error={!!errors.soDt}
+                    helperText={errors.soDt?.message}
+                  />
+                </Box>
 
-              <Button className={style.signButton} type="submit" disabled={isLoading}>
-                Đăng Ký
-              </Button>
+                <div>{error && <p>{error}</p>}</div>
 
-              <div>Bạn đã có tài khoản? Đăng Nhập</div>
-            </form>
+                <Button
+                  className={style.signButton}
+                  type="submit"
+                  disabled={isLoading}
+                >
+                  Đăng Ký
+                </Button>
+
+                <div>Bạn đã có tài khoản? Đăng Nhập</div>
+              </form>
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
+      </Container>
     </div>
   );
 }

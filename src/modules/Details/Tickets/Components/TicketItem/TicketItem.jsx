@@ -7,8 +7,6 @@ import { useDispatch } from "react-redux";
 export default function TicketItem({ seat, isSelected }) {
   const dispatch = useDispatch();
 
-  console.log(seat);
-
   let classes = { style };
   if (seat.taiKhoanNguoiDat) {
     classes = style.itemcolorisbook;
@@ -31,7 +29,7 @@ export default function TicketItem({ seat, isSelected }) {
         className={classes}
         variant="outlined"
         size="small"
-        disabled={seat.taiKhoanNguoiDat}
+        disabled={seat.daDat}
         onClick={handleSelect}
       >
         {seat.tenGhe}

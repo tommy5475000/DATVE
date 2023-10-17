@@ -28,7 +28,7 @@ export async function getMovieInCinema(cinemaId) {
     const response = await fetcher.get("/QuanLyRap/LayThongTinLichChieuHeThongRap",{
       params:{
         maHeThongRap:cinemaId,
-        maNhom:"GP03"
+        maNhom:"GP07"
       }
     }) 
     return response.data.content
