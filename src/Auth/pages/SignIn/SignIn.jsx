@@ -1,4 +1,12 @@
-import { Box, Button, Grid, Modal, TextField, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Button,
+  Container,
+  Grid,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import style from "../SignUp/styleSignUp.module.scss";
 import { useForm } from "react-hook-form";
@@ -8,6 +16,7 @@ import { useMutation } from "@tanstack/react-query";
 import { signin } from "../../../apis/user";
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { useUserContext } from "../../../contexts/UserContext/UserContext";
+import PersonIcon from "@mui/icons-material/Person";
 
 const signinSchema = object({
   taiKhoan: string().required("Tài khoản không được để trống"),
@@ -55,52 +64,65 @@ export default function SignIn() {
   };
 
   if (currentUser) {
-    const redirectTo= searchParams.get("redirectTo")
+    const redirectTo = searchParams.get("redirectTo");
     return <Navigate to={redirectTo || "/"} replace />;
   }
 
   return (
     <div className={style.backgroud}>
       <Grid sx={{ mx: 65 }}>
-        <Grid container>
-          <Grid className={style.form}>
-            <h3 className={style.h3}>Đăng Nhập</h3>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Box
-                component="form"
-                sx={{
-                  "& > :not(style)": { m: 1, width: "50ch" },
-                }}
-                noValidate
-                autoComplete="off"
-              >
-                <TextField
-                  id="outlined-basic"
-                  label="Tài Khoản"
-                  {...register("taiKhoan")}
-                  error={!!errors.taiKhoan}
-                  helperText={errors.taiKhoan?.message}
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="Mật Khẩu"
-                  type="password"
-                  {...register("matKhau")}
-                  error={!!errors.matKhau}
-                  helperText={errors.matKhau?.message}
-                />
-              </Box>
+        <Container maxWidth="xs">
+          <Grid>
+            <Grid container>
+              <Grid className={style.form}>
+                <div className={style.js1}>
+                  <Avatar className={style.icon}>
+                    <PersonIcon fontSize="medium" />
+                  </Avatar>
+                  <h3 className={style.h3}>Đăng Nhập</h3>
+                </div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <Box
+                    component="form"
+                    sx={{
+                      "& > :not(style)": { m: 1, width: "40ch" },
+                    }}
+                    noValidate
+                    autoComplete="off"
+                  >
+                    <TextField
+                      id="outlined-basic"
+                      label="Tài Khoản"
+                      {...register("taiKhoan")}
+                      error={!!errors.taiKhoan}
+                      helperText={errors.taiKhoan?.message}
+                    />
+                    <TextField
+                      id="outlined-basic"
+                      label="Mật Khẩu"
+                      type="password"
+                      {...register("matKhau")}
+                      error={!!errors.matKhau}
+                      helperText={errors.matKhau?.message}
+                    />
+                  </Box>
 
-              <Button type="submit" disabled={isLoading}>
-                Đăng Nhập
-              </Button>
-              {error && <p>{error}</p>}
-            </form>
-            <div onClick={() => navigate("/sign-up")}>
-              Bạn chưa có tài khoản? Bấm vào để đăng ký
-            </div>
+                  <Button
+                    type="submit"
+                    disabled={isLoading}
+                    className={style.signButton}
+                  >
+                    Đăng Nhập
+                  </Button>
+                  {error && <p>{error}</p>}
+                </form>
+                <div className={style.js2} onClick={() => navigate("/sign-up")}>
+                  Bạn chưa có tài khoản? Bấm vào để đăng ký
+                </div>
+              </Grid>
+            </Grid>
           </Grid>
-        </Grid>
+        </Container>
       </Grid>
     </div>
   );
