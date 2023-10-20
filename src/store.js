@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import fetcher from "./apis/fetcher";
 
 const initState = {
   selectedSeats: [],
@@ -20,9 +21,7 @@ const ticketReducer = (state = initState, action) => {
       );
       const totalPrice = state.totalPrice - seat.giaVe;
       return { ...state, selectedSeats, totalPrice };
-    }
-
-
+    };
 
     default:
       return state;
@@ -32,7 +31,6 @@ const ticketReducer = (state = initState, action) => {
 const store = configureStore({
   reducer: {
     ticket: ticketReducer,
-
   },
 });
 

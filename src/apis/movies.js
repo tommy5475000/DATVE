@@ -13,7 +13,7 @@ export async function getMoives() {
   try {
     const response = await fetcher.get("/QuanLyPhim/LayDanhSachPhim", {
       params: {
-        maNhom: "GP07",
+        maNhom: "GP08",
       },
     });
     return response.data?.content;
@@ -32,5 +32,55 @@ export async function getMoivesInfo(cinemaId) {
     return response.data?.content;
   } catch (error) {
     return error.response.data?.content;
+  }
+}
+
+//ADMIN PAGES
+export async function addMovie(movie) {
+  try {
+    const response = await fetcher.post(
+      "/QuanLyPhim/ThemPhimUploadHinh",
+      movie
+    );
+    return response.data?.content;
+  } catch (error) {
+    throw error.response.data?.content;
+  }
+}
+
+export async function deleteMovie(movieId) {
+  try {
+    const response = await fetcher.delete("QuanLyPhim/XoaPhim", {
+      params: {
+        MaPhim: movieId,
+      },
+    });
+    return response.data?.content;
+  } catch (error) {
+    throw error.response.data.content;
+  }
+}
+
+export async function addMovieShowtime(values) {
+  try {
+    const response = await fetcher.post("QuanLyDatVe/TaoLichChieu", values);
+    return response.data.content;
+  } catch (error) {
+    throw error.response.data.content;
+  }
+}
+
+export async function getMovieList(page) {
+  try {
+    const response = await fetcher.get("/QuanLyPhim/LayDanhSachPhimPhanTrang", {
+      params: {
+        soTrang: page,
+        maNhom: "GP08",
+        soPhanTuTrenTrang: "5",
+      },
+    });
+    return response.data?.content;
+  } catch (error) {
+    throw error.response.data?.content;
   }
 }

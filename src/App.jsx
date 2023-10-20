@@ -7,8 +7,10 @@ import SignIn from "./Auth/pages/SignIn";
 import SignUp from "./Auth/pages/SignUp";
 import UserProvider from "./contexts/UserContext/UserContext";
 import ProtectedRoute from "./routers/ProtectedRoute";
-import Admin from "./admin";
-import AdminPages from "./AdminPages";
+import AdminLayout from "./AdminPages/layout/AdminLayout";
+import AdminMovie from "./AdminPages/modules/AdminMovie";
+import AdminProtextedRoute from "./routers/AdminProtectedRoute";
+
 
 function App() {
   return (
@@ -32,8 +34,12 @@ function App() {
             <Route path="/sign-up" element={<SignUp />} />
           </Route>
 
-          
-          <Route path="/admin" element={<AdminPages />} />
+          <Route element={<AdminProtextedRoute />}>
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route path="/admin/movies" element={<AdminMovie />} />
+          </Route>
+
+          </Route>
 
           <Route path="*" element={"123"} />
         </Routes>
