@@ -1,3 +1,10 @@
+https://datve.vercel.app/
+
+Chia pages :
+Nam làm trang home, admin
+Cường làm trang showtime, ticket, info
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
